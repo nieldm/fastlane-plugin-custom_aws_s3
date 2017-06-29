@@ -27,7 +27,7 @@ module Fastlane
         obj.upload_file(file)
         UI.message("#{file} Uploaded!")
         UI.message("Updating latest uploaded file")
-        obj = s3.bucket(aws_bucket).object("latest")
+        obj = s3.bucket(aws_bucket).object("latest.zip")
         obj.upload_file(file)
         UI.message("Latest uploaded!")        
         s3_client = Aws::S3::Client.new        
