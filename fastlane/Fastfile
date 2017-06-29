@@ -1,0 +1,3 @@
+lane :test do
+  custom_aws_s3
+end
