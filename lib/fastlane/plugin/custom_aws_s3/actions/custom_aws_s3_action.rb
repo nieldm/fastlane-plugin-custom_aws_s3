@@ -32,7 +32,7 @@ module Fastlane
         UI.message("Latest uploaded!")        
         s3_client = Aws::S3::Client.new        
         signer = Aws::S3::Presigner.new({client: s3_client})
-        url = signer.presigned_url(:get_object, bucket: aws_bucket, key: aws_key)
+        url = signer.presigned_url(:get_object, bucket: aws_bucket, key: aws_key, expires_in: 604800)
         UI.message("#{url} Created!")                        
 
         return Actions.lane_context[SharedValues::CUSTOM_AWS_S3_URL] = url        
